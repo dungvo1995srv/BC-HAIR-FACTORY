@@ -10290,3 +10290,378 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.2) rotate(-5deg);
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
+/* 
+san pham con */
+/* Swiper / Genius carousel styles */
+.genius-swiper-wrapper {
+  position: relative;
+  padding: 20px 0 20px; /* tăng padding-top để tụt xuống 20px */
+}
+
+.genius-swiper {
+  padding: 20px 0;       /* tạo thêm không gian */
+  height: 420px;  
+}
+.swiper-slide {
+  pointer-events: auto !important;
+}
+
+/* slide cơ bản */
+.genius-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: transform 300ms ease, opacity 300ms ease;
+  height: auto;
+  pointer-events: auto !important;
+}
+
+/* card sản phẩm */
+.genius-slide-card {
+  width: 220px;
+  max-width: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.9));
+  border: 1px solid rgba(191, 146, 91, 0.5);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 300px;
+  transform: scale(0.95);
+  transition: transform 300ms ease, box-shadow 300ms ease, border 300ms ease;
+  opacity: 1; /* luôn rõ nét */
+  cursor: pointer;
+}
+
+.genius-slide-card:hover {
+  transform: translateY(-15px); /* nhảy lên trên 15px */
+  box-shadow: 0 12px 28px rgba(255, 211, 107, 0.6);
+  filter: brightness(1.15); /* sáng hơn */
+}
+.genius-swiper .swiper-slide-active .genius-slide-card:hover,
+.genius-swiper .swiper-slide-prev .genius-slide-card:hover,
+.genius-swiper .swiper-slide-next .genius-slide-card:hover {
+  transform: translateY(-15px) scale(1.15); /* vẫn nhảy lên + giữ scale to hơn */
+  filter: brightness(1.2); /* sáng mạnh hơn */
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
+}
+
+.genius-slide-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* title + desc */
+.genius-slide-title {
+  margin: 0;
+  min-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 17px;
+  white-space: nowrap;
+  font-weight: 700;
+  color: #ffd36b;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.genius-slide-desc {
+  color: #f0f0f0;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* hiệu ứng scale */
+.genius-slide-card {
+  transform-origin: center center;
+  transform: scale(0.95);
+  opacity: 0.85;
+}
+
+.genius-swiper .swiper-slide-prev .genius-slide-card,
+.genius-swiper .swiper-slide-next .genius-slide-card {
+  transform: scale(0.98);
+  opacity: 1; /* không bị mờ nữa */
+}
+
+
+.genius-swiper .swiper-slide-active .genius-slide-card {
+  transform: scale(1.15);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.65);
+  border: 1px solid #ffd36b;
+  z-index: 20;
+  opacity: 1; /* giữ rõ nét */
+}
+
+/* nút mũi tên lớn, sang chảnh */
+/* container để mũi tên nằm ngoài slider */
+.genius-swiper-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* tránh cản click slide */
+  z-index: 30;
+}
+
+.genius-swiper-prev,
+.genius-swiper-next {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  border: 2px solid #ffd36b;
+  background: rgba(30, 30, 30, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all; /* cho phép click */
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 15px rgba(255, 211, 107, 0.3);
+}
+
+/* icon mũi tên vàng bằng SVG */
+.genius-swiper-prev::after,
+.genius-swiper-next::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-color: #ffd36b;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+/* icon trái */
+.genius-swiper-prev::after {
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z'/></svg>");
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z'/></svg>");
+}
+
+/* icon phải */
+.genius-swiper-next::after {
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/></svg>");
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/></svg>");
+}
+
+/* hover effect */
+.genius-swiper-prev:hover,
+.genius-swiper-next:hover {
+  background: #ffd36b;
+  transform: scale(1.15);
+  box-shadow: 0 0 30px rgba(255, 211, 107, 0.9);
+}
+
+.genius-swiper-prev:hover::after,
+.genius-swiper-next:hover::after {
+  background-color: #121212; /* icon đen trên nền vàng */
+}
+
+/* chitiet sam pham */
+.product-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75); /* nền tối mờ mờ */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: "Poppins", sans-serif;
+  color: #eee;
+}
+
+/* hộp modal */
+.product-modal-content {
+  display: flex;
+  gap: 20px;
+  max-width: 1000px;
+  width: 90%;
+  background: rgba(30,30,30,0.6); /* trong suốt hơn */
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(8px); /* hiệu ứng kính mờ */
+  position: relative;
+}
+
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.product-modal-left {
+  flex: 1;
+  color: #fff;
+}
+.product-modal-left h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #ffd36b;
+}
+.product-modal-left p {
+  line-height: 1.5;
+}
+
+.product-modal-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-modal-right img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.product-modal-close {
+  position: absolute;
+  top: 10px;
+  right: -55px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.product-modal-close:hover { color: #f5d76e; }
+
+.media-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 190%; /* 9:16 ratio (16/9 * 100% = 177.77%) */
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.media-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 40px); /* chừa 40px phía dưới cho chấm */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-frame img,
+.media-frame video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#modal-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #f5d76e; /* vàng nhạt */
+}
+#modal-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(245, 215, 110, 0.7); /* vàng nhạt trong suốt */
+  border: none;
+  color: #000; /* icon màu đen để nổi bật trên nền vàng */
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.9s ease;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.nav-btn:hover {
+  background: rgba(245, 215, 110, 1); /* vàng đậm sáng hơn */
+  transform: translateY(-50%) scale(1.2); /* to ra */
+  color: #000; /* icon vẫn đen */
+}
+
+.prev-btn { left: 1px; }
+.next-btn { right: 1px; }
+
+/* đảm bảo mọi slide đều nhận được click */
+.genius-swiper .swiper-slide {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 5; /* mỗi slide đều nổi một chút để click */
+}
+
+/* slide active thì nổi cao nhất */
+.genius-swiper .swiper-slide-active {
+  z-index: 30 !important;
+}
+
+/* slide bên cạnh cũng nổi hơn để tránh bị che */
+.genius-swiper .swiper-slide-prev,
+.genius-swiper .swiper-slide-next {
+  z-index: 20 !important;
+}
+
+.media-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 177.77%; /* 9:16 ratio */
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* chấm nằm dưới cùng trong khung */
+.media-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.media-dots button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: #666; /* xám khi không active */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.media-dots button.active {
+  background: #f5d76e;  /* vàng nhạt */
+  transform: scale(1.5);
+}
+
+/* CSS cho Machine Weft */
+/* Swiper / Machine carousel styles */
