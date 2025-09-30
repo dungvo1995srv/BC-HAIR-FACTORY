@@ -887,6 +887,27 @@
 		// Lightbox giữ nguyên như mình viết trước
 
 	</script>
+<script>
+  window.addEventListener("scroll", function() {
+    const section = document.querySelector(".services-section.ftco-section");
+    if (!section) return;
+
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // lấy vị trí section trong viewport
+    const sectionTop = rect.top + scrollTop;
+
+    // tính offset dựa trên vị trí cuộn
+    const offset = (scrollTop - sectionTop) * 0.5; // 0.3 = tốc độ parallax
+
+    // update biến CSS
+    section.style.setProperty("--parallax-offset", offset + "px");
+  });
+</script>
+
+
 
 </body>
 
