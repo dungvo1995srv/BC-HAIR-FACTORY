@@ -10293,12 +10293,12 @@ h1, h2, h3, h4, h5, h6 {
 /* 
 san pham con */
 /* Swiper / Genius carousel styles */
-.genius-swiper-wrapper {
+.weft-swiper-wrapper {
   position: relative;
   padding: 20px 0 20px; /* tăng padding-top để tụt xuống 20px */
 }
 
-.genius-swiper {
+.weft-swiper {
   padding: 20px 0;       /* tạo thêm không gian */
   height: 420px;  
 }
@@ -10307,7 +10307,7 @@ san pham con */
 }
 
 /* slide cơ bản */
-.genius-swiper .swiper-slide {
+.weft-swiper .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10318,7 +10318,7 @@ san pham con */
 }
 
 /* card sản phẩm */
-.genius-slide-card {
+.weft-slide-card {
   width: 220px;
   max-width: 100%;
   background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.9));
@@ -10337,20 +10337,20 @@ san pham con */
   cursor: pointer;
 }
 
-.genius-slide-card:hover {
+.weft-slide-card:hover {
   transform: translateY(-15px); /* nhảy lên trên 15px */
   box-shadow: 0 12px 28px rgba(255, 211, 107, 0.6);
   filter: brightness(1.15); /* sáng hơn */
 }
-.genius-swiper .swiper-slide-active .genius-slide-card:hover,
-.genius-swiper .swiper-slide-prev .genius-slide-card:hover,
-.genius-swiper .swiper-slide-next .genius-slide-card:hover {
+.weft-swiper .swiper-slide-active .weft-slide-card:hover,
+.weft-swiper .swiper-slide-prev .weft-slide-card:hover,
+.weft-swiper .swiper-slide-next .weft-slide-card:hover {
   transform: translateY(-15px) scale(1.15); /* vẫn nhảy lên + giữ scale to hơn */
   filter: brightness(1.2); /* sáng mạnh hơn */
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
 }
 
-.genius-slide-card img {
+.weft-slide-card img {
   width: 100%;
   height: 170px;
   object-fit: cover;
@@ -10359,7 +10359,7 @@ san pham con */
 }
 
 /* title + desc */
-.genius-slide-title {
+.weft-slide-title {
   margin: 0;
   min-height: 40px;
   overflow: hidden;
@@ -10372,7 +10372,7 @@ san pham con */
   text-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
 
-.genius-slide-desc {
+.weft-slide-desc {
   color: #f0f0f0;
   font-size: 14px;
   text-align: center;
@@ -10381,20 +10381,20 @@ san pham con */
 }
 
 /* hiệu ứng scale */
-.genius-slide-card {
+.weft-slide-card {
   transform-origin: center center;
   transform: scale(0.95);
   opacity: 0.85;
 }
 
-.genius-swiper .swiper-slide-prev .genius-slide-card,
-.genius-swiper .swiper-slide-next .genius-slide-card {
+.weft-swiper .swiper-slide-prev .weft-slide-card,
+.weft-swiper .swiper-slide-next .weft-slide-card {
   transform: scale(0.98);
   opacity: 1; /* không bị mờ nữa */
 }
 
 
-.genius-swiper .swiper-slide-active .genius-slide-card {
+.weft-swiper .swiper-slide-active .weft-slide-card {
   transform: scale(1.15);
   box-shadow: 0 12px 32px rgba(0,0,0,0.65);
   border: 1px solid #ffd36b;
@@ -10404,7 +10404,7 @@ san pham con */
 
 /* nút mũi tên lớn, sang chảnh */
 /* container để mũi tên nằm ngoài slider */
-.genius-swiper-nav {
+.weft-swiper-nav {
   position: absolute;
   top: 50%;
   width: 100%;
@@ -10415,8 +10415,8 @@ san pham con */
   z-index: 30;
 }
 
-.genius-swiper-prev,
-.genius-swiper-next {
+.weft-swiper-prev,
+.weft-swiper-next {
   width: 70px;
   height: 70px;
   border-radius: 16px;
@@ -10433,8 +10433,8 @@ san pham con */
 }
 
 /* icon mũi tên vàng bằng SVG */
-.genius-swiper-prev::after,
-.genius-swiper-next::after {
+.weft-swiper-prev::after,
+.weft-swiper-next::after {
   content: '';
   display: block;
   width: 28px;
@@ -10449,27 +10449,27 @@ san pham con */
 }
 
 /* icon trái */
-.genius-swiper-prev::after {
+.weft-swiper-prev::after {
   mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z'/></svg>");
   -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z'/></svg>");
 }
 
 /* icon phải */
-.genius-swiper-next::after {
+.weft-swiper-next::after {
   mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/></svg>");
   -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/></svg>");
 }
 
 /* hover effect */
-.genius-swiper-prev:hover,
-.genius-swiper-next:hover {
+.weft-swiper-prev:hover,
+.weft-swiper-next:hover {
   background: #ffd36b;
   transform: scale(1.15);
   box-shadow: 0 0 30px rgba(255, 211, 107, 0.9);
 }
 
-.genius-swiper-prev:hover::after,
-.genius-swiper-next:hover::after {
+.weft-swiper-prev:hover::after,
+.weft-swiper-next:hover::after {
   background-color: #121212; /* icon đen trên nền vàng */
 }
 
@@ -10611,20 +10611,20 @@ san pham con */
 .next-btn { right: 1px; }
 
 /* đảm bảo mọi slide đều nhận được click */
-.genius-swiper .swiper-slide {
+.weft-swiper .swiper-slide {
   pointer-events: auto !important;
   position: relative;
   z-index: 5; /* mỗi slide đều nổi một chút để click */
 }
 
 /* slide active thì nổi cao nhất */
-.genius-swiper .swiper-slide-active {
+.weft-swiper .swiper-slide-active {
   z-index: 30 !important;
 }
 
 /* slide bên cạnh cũng nổi hơn để tránh bị che */
-.genius-swiper .swiper-slide-prev,
-.genius-swiper .swiper-slide-next {
+.weft-swiper .swiper-slide-prev,
+.weft-swiper .swiper-slide-next {
   z-index: 20 !important;
 }
 
