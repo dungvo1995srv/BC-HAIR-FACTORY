@@ -50,11 +50,11 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="services.html" class="nav-link">Weft hair extensions</a></li>
-					<li class="nav-item"><a href="gallery.html" class="nav-link">Nano rings</a></li>
-					<li class="nav-item"><a href="about.html" class="nav-link">Tapes</a></li>
-					<li class="nav-item"><a href="blog.html" class="nav-link">K-tips</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link">Bulk hair</a></li>
+					<li class="nav-item"><a href="services.html" class="nav-link">About Us</a></li>
+					<li class="nav-item"><a href="gallery.html" class="nav-link">Product</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link">Contact Us</a></li>
+					<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+					<!-- <li class="nav-item"><a href="contact.html" class="nav-link">Bulk hair</a></li> -->
 				</ul>
 			</div>
 		</div>
@@ -1128,196 +1128,7 @@
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-	<!-- Khởi tạo Swiper cho content-genius -->
-	<!-- <script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const geniusSwiper = new Swiper('.genius-swiper', {
-				slidesPerView: 5,
-				centeredSlides: true,
-				loop: true,
-				initialSlide: 3,
-				loopAdditionalSlides: 5, // giảm xuống 5 ổn định hơn
-				speed: 600,
-				navigation: {
-					nextEl: '.genius-swiper-next',
-					prevEl: '.genius-swiper-prev',
-				},
-
-				effect: 'coverflow',
-				coverflowEffect: {
-					rotate: 0,
-					stretch: -30,
-					depth: 150,
-					modifier: 1,
-					slideShadows: false,
-				},
-				preventClicks: false,
-				preventClicksPropagation: false,
-				watchSlidesProgress: true,   // 👈 quan trọng
-				watchSlidesVisibility: true,
-				slideToClickedSlide: true,
-				breakpoints: {
-					0: { slidesPerView: 1 },
-					576: { slidesPerView: 2 },
-					768: { slidesPerView: 3 },
-					992: { slidesPerView: 4 },
-					1200: { slidesPerView: 5 }
-				}
-			});
-
-			// Hàm cập nhật Swiper khi tab hiện ra và ảnh đã load
-			function updateGeniusWhenVisible() {
-				const section = document.getElementById('content-genius');
-				if (!section) return;
-
-				// đợi images trong section load xong rồi update
-				const imgs = Array.from(section.querySelectorAll('img'));
-				if (imgs.length === 0) {
-					// không có ảnh -> update ngay
-					geniusSwiper.update();
-					geniusSwiper.slideToLoop(3, 0);
-					return;
-				}
-
-				let loaded = 0;
-				imgs.forEach(img => {
-					if (img.complete) {
-						loaded++;
-					} else {
-						img.addEventListener('load', () => {
-							loaded++;
-							if (loaded === imgs.length) {
-								geniusSwiper.update();
-								geniusSwiper.slideToLoop(3, 0);
-							}
-						});
-						img.addEventListener('error', () => {
-							loaded++;
-							if (loaded === imgs.length) {
-								geniusSwiper.update();
-								geniusSwiper.slideToLoop(3, 0);
-							}
-						});
-					}
-				});
-
-				// nếu tất cả đã hoàn tất
-				if (loaded === imgs.length) {
-					geniusSwiper.update();
-					geniusSwiper.slideToLoop(3, 0);
-				}
-			}
-
-			// Gắn sự kiện lên các nút / phần tử mở content-genius (nếu bạn dùng data-target như trước)
-			document.querySelectorAll('[data-target="#content-genius"]').forEach(btn => {
-				btn.addEventListener('click', () => {
-					// delay nhỏ để DOM chuyển sang trạng thái visible trước khi kiểm tra ảnh
-					setTimeout(updateGeniusWhenVisible, 50);
-				});
-			});
-
-			// Ngoài ra chạy 1 lần nếu #content-genius có thể visible ngay
-			// updateGeniusWhenVisible();
-		});
-
-		// chitiet san pham
-		document.addEventListener('DOMContentLoaded', () => {
-			const modal = document.getElementById('product-modal');
-			const modalTitle = document.getElementById('modal-title');
-			const modalDesc = document.getElementById('modal-desc');
-			const mediaFrame = document.getElementById('modal-media');
-			const dotsContainer = document.getElementById('media-dots');
-			const closeBtn = modal.querySelector('.product-modal-close');
-			const prevBtn = modal.querySelector('.prev-btn');
-			const nextBtn = modal.querySelector('.next-btn');
-
-			let mediaList = [];
-			let currentIndex = 0;
-
-			function renderMedia(index) {
-				mediaFrame.innerHTML = '';
-				const src = mediaList[index];
-				if (!src) return;
-
-				if (src.match(/\.(mp4|webm|ogg|mov)$/i)) {
-					mediaFrame.innerHTML = `
-    <video controls class="w-100 h-100">
-      <source src="${src}" type="video/mp4">
-    </video>`;
-				}
-				else {
-					mediaFrame.innerHTML = `<img src="${src}" alt="">`;
-				}
-
-				// cập nhật dots
-				Array.from(dotsContainer.children).forEach((dot, i) => {
-					dot.classList.toggle('active', i === index);
-				});
-			}
-
-			function createDots() {
-				dotsContainer.innerHTML = '';
-				mediaList.forEach((_, i) => {
-					const dot = document.createElement('button');
-					dot.addEventListener('click', () => {
-						currentIndex = i;
-						renderMedia(currentIndex);
-					});
-					dotsContainer.appendChild(dot);
-				});
-			}
-
-			document.querySelectorAll('.genius-slide-card').forEach(card => {
-				card.addEventListener('click', () => {
-					modalTitle.textContent = card.dataset.title;
-					modalDesc.textContent = card.dataset.desc;
-
-					if (card.dataset.media) {
-						try {
-							mediaList = JSON.parse(card.dataset.media);
-						} catch (e) {
-							mediaList = [card.dataset.media];
-						}
-					} else if (card.dataset.img) {
-						mediaList = [card.dataset.img];
-					} else {
-						mediaList = Array.from(card.querySelectorAll('img')).map(i => i.src);
-					}
-
-					currentIndex = 0;
-					createDots();
-					renderMedia(currentIndex);
-
-					modal.style.display = 'flex';
-				});
-			});
-
-			prevBtn.addEventListener('click', () => {
-				currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
-				renderMedia(currentIndex);
-			});
-
-			nextBtn.addEventListener('click', () => {
-				currentIndex = (currentIndex + 1) % mediaList.length;
-				renderMedia(currentIndex);
-			});
-
-			closeBtn.addEventListener('click', () => {
-				modal.style.display = 'none';
-			});
-
-			modal.addEventListener('click', (e) => {
-				if (e.target === modal) {
-					modal.style.display = 'none';
-				}
-			});
-		});
-
-
-
-
-	</script> -->
-
+ 
 	<!-- JS mới (hỗ trợ nhiều section) -->
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
@@ -1508,6 +1319,10 @@
 			});
 		});
 	</script>
+
+	<!-- hiệu ứng slide từ trái/phải -->
+
+
 
 
 </body>
