@@ -10681,5 +10681,27 @@ san pham con */
   transform: scale(1.5);
 }
 
-/* CSS cho Machine Weft */
-/* Swiper / Machine carousel styles */
+/* CSS cho about web */
+.logo-about {
+  max-width: 400px; /* to hơn logo bình thường, có thể chỉnh lên/xuống */
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Playfair+Display+SC:wght@400&display=swap');
+
+.bread-about {
+    font-weight: 300;
+    color: #DFC28A !important;
+    font-size: 100px;
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase; 
+    
+}
+.bread-about2 {
+    font-weight: 100;
+    color: #DFC28A !important;
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase; 
+}
